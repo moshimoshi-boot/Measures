@@ -6,19 +6,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.CharacterEntity;
-import com.example.demo.mapper.CharacterMapper;
+import com.example.demo.service.CharacterService;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
 @RestController
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class ApiController {
-	private final CharacterMapper charactersMapper;
 
-	@RequestMapping(value="/")
-	private String selectCharacters(){
-		List<CharacterEntity> charactersList = charactersMapper.selectCharacterList();
-		return charactersList.toString();
+	private CharacterService characterService;
+
+	@RequestMapping(value="/characters/json")
+	private List<CharacterEntity> getCharactersJson(){
+		return characterService.selectCharacters();
 	}
 
 }

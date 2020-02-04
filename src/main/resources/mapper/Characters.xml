@@ -4,8 +4,14 @@
 	<select id="selectCharacterList" resultType="com.example.demo.entity.CharacterEntity">
 		SELECT
 			id,
-			name
+			name,
+			display_order,
+			type_id
 		FROM
 		character_m
+		<if test="typeId != null">
+		WHERE
+			type_id = #{typeId}
+		</if>
 	</select>
 </mapper>

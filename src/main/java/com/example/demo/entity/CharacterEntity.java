@@ -7,5 +7,7 @@ public class CharacterEntity {
 
 	private String id;
 	private String name;
+	private int displayOrder;
+	private String typeId;
 
 }
