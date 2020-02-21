@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CharacterNoteMapper">
+	<select id="selectCharacterNoteList" resultType="com.example.demo.entity.CharacterNoteEntity">
+		SELECT
+			game_type_id,
+			character_id,
+			note_id,
+			note_content
+		FROM
+		character_note
+		WHERE
+			game_type_id = #{typeId}
+		AND character_id = #{characterId}
+		ORDER BY note_id
+	</select>
+
+	<insert id="insertNote" useGeneratedKeys="true" keyProperty="noteId">
+		
+	</insert>
+</mapper>
